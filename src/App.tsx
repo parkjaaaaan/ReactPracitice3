@@ -1,24 +1,27 @@
-// src/App.tsx
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import MainContent from "./components/MainContent";
-import "./App.css";
-// 기타 필요한 컴포넌트 임포트
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import MainContent from './components/MainContent';
+import Login from './Login';
+import Register from './Register';
+import Cart from './Cart';
+import './App.css';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Header />
-      {/* 라우트 설정 */}
-      <Routes>
-        <Route path="/" element={<MainContent />} />
-        {/* 다른 페이지 라우트 설정 */}
-      </Routes>
-      <Footer />
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/" element={<MainContent />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   );
-};
+}
 
 export default App;
